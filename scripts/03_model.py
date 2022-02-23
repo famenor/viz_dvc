@@ -9,8 +9,8 @@ print(casos.head(3))
 
 semanas = casos[['anio_semana']].drop_duplicates().sort_values(by='anio_semana', ascending=False)
 
-semana_base = semanas['anio_semana'].values[0]
-semana_ref = semanas['anio_semana'].values[2]
+semana_base = semanas['anio_semana'].values[4]
+semana_ref = semanas['anio_semana'].values[14]
 
 print('\n')
 print('Semana base:', semana_base)

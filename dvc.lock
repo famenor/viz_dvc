@@ -41,24 +41,24 @@ stages:
       md5: 69d6589f8feed8f01cb7b1616ee84ccc
       size: 127887
     - path: scripts/03_model.py
-      md5: c2546a614acb8cbe414ebeb5cea9b118
-      size: 980
+      md5: c5c11e12019f5f522cb0f6611784ccc6
+      size: 981
     outs:
     - path: data/processed/covid_trend.csv
-      md5: 4a7b97debfe62cd2767639fab2279dc8
-      size: 873
+      md5: fe5d3856bfd64d1a1370883a5ae811a0
+      size: 861
       isexec: true
   results:
     cmd: python scripts/04_results.py
     deps:
     - path: data/processed/covid_trend.csv
-      md5: 4a7b97debfe62cd2767639fab2279dc8
-      size: 873
+      md5: fe5d3856bfd64d1a1370883a5ae811a0
+      size: 861
     - path: scripts/04_results.py
       md5: 9981373b347b2db5e4c8b1ffee1205db
       size: 707
     outs:
     - path: data/processed/metrics/results.json
-      md5: dfb11396f89fd4b7d96063443f296478
+      md5: 79c37f2ba106da58f717ac82a6220f7b
       size: 23
       isexec: true
