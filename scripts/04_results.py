@@ -5,10 +5,11 @@ import csv
 import json
 
 
-trend = pd.read_csv('../data/processed/covid_trend.csv')
+trend = pd.read_csv('data/processed/covid_trend.csv')
 print(trend.head(3))
 
 resultados = trend.groupby(by='resultado', as_index=False).agg({'estado': 'count'})
+print('\n')
 print(resultados.head(3))
 
 
@@ -21,12 +22,12 @@ for index, row in resultados.iterrows():
         results['Alza'] = row['estado']
     elif row['resultado'] == 'B':
         results['Baja'] = row['estado']
-        
+print('\n')       
 print(results)
 
 
-with open('../data/processed/metrics/results.json', 'w') as outfile:
-    print('Test')
+with open('data/processed/metrics/results.json', 'w') as outfile:
     json.dump(results, outfile)
-    
-print('File processed')
+
+print('\n')
+print('Proceso de generación de métricas terminado')

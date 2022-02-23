@@ -3,7 +3,7 @@ import numpy as np
 import csv
 
 
-casos = pd.read_csv('../data/processed/covid_prepared.csv')
+casos = pd.read_csv('data/processed/covid_prepared.csv')
 print(casos.head(3))
 
 
@@ -12,7 +12,9 @@ semanas = casos[['anio_semana']].drop_duplicates().sort_values(by='anio_semana',
 semana_base = semanas['anio_semana'].values[0]
 semana_ref = semanas['anio_semana'].values[2]
 
-print(semana_base, semana_ref)
+print('\n')
+print('Semana base:', semana_base)
+print('Semana referencia:', semana_ref)
 
 
 base = casos[['estado', 'confirmados']].loc[casos['anio_semana'] == semana_base].copy()
@@ -26,4 +28,6 @@ union.loc[union['confirmados_base'] >= union['confirmados_ref'], 'resultado'] = 
 print(union.head(32))
 
 
-union.to_csv('../data/processed/covid_trend.csv', index=False)
+union.to_csv('data/processed/covid_trend.csv', index=False)
+print('\n')
+print('Proceso de generación de tendencias terminado')

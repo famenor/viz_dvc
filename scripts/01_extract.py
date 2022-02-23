@@ -5,29 +5,31 @@ import csv
 from datetime import datetime, timedelta
 
 
-confirmados = pd.read_csv('../data/inputs/Casos_Diarios_Estado_Nacional_Confirmados.csv')
+confirmados = pd.read_csv('data/inputs/Casos_Diarios_Estado_Nacional_Confirmados.csv')
 confirmados = pd.melt(confirmados, id_vars=['cve_ent', 'poblacion', 'nombre'], var_name='fecha', value_name='confirmados')
 confirmados['fecha'] = pd.to_datetime(confirmados['fecha'], format='%d-%m-%Y')
 confirmados = confirmados.drop(columns=['poblacion'])
 
 print(confirmados.head(3))
+print('\n')
 
 
-defunciones = pd.read_csv('../data/inputs/Casos_Diarios_Estado_Nacional_Defunciones.csv')
+defunciones = pd.read_csv('data/inputs/Casos_Diarios_Estado_Nacional_Defunciones.csv')
 defunciones = pd.melt(defunciones, id_vars=['cve_ent', 'poblacion', 'nombre'], var_name='fecha', value_name='defunciones')
 defunciones['fecha'] = pd.to_datetime(defunciones['fecha'], format='%d-%m-%Y')
 defunciones = defunciones.drop(columns=['poblacion'])
 
 print(defunciones.head(3))
+print('\n')
 
 
-negativos = pd.read_csv('../data/inputs/Casos_Diarios_Estado_Nacional_Negativos.csv')
+negativos = pd.read_csv('data/inputs/Casos_Diarios_Estado_Nacional_Negativos.csv')
 negativos = pd.melt(negativos, id_vars=['cve_ent', 'poblacion', 'nombre'], var_name='fecha', value_name='negativos')
 negativos['fecha'] = pd.to_datetime(negativos['fecha'], format='%d-%m-%Y')
 negativos = negativos.drop(columns=['poblacion'])
 
 print(negativos.head(3))
-
+print('\n')
 
 consolidado = confirmados.merge(negativos, how='outer', on=['cve_ent', 'nombre', 'fecha'])
 consolidado = consolidado.merge(defunciones, how='outer', on=['cve_ent', 'nombre', 'fecha'])
@@ -56,6 +58,10 @@ consolidado.loc[consolidado['fecha'] >= '2021-12-01', 'ola'] = 'ola_4'
 
 consolidado = consolidado.sort_values(by=['pais', 'estado', 'fecha'])
 
+print('\n')
 print(consolidado.head(3))
 
-consolidado.to_csv('../data/processed/casos_covid.csv', index=False)
+consolidado.to_csv('data/processed/casos_covid.csv', index=False)
+
+print('\n')
+print('Proceso de extracción terminado')
