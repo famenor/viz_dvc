@@ -4,61 +4,61 @@ stages:
     cmd: python scripts/01_extract.py
     deps:
     - path: data/inputs/Casos_Diarios_Estado_Nacional_Confirmados.csv
-      md5: dd8474554edaf4f40df73d9b8b31da02
-      size: 89497
+      md5: 5fb949590a739a1d78f3db26ee769b3d
+      size: 91574
     - path: data/inputs/Casos_Diarios_Estado_Nacional_Defunciones.csv
-      md5: aa7627db696d61d64e84aa5bebdffaf7
-      size: 64800
+      md5: 580e60a4372dd8a92893714bcc894c59
+      size: 66167
     - path: data/inputs/Casos_Diarios_Estado_Nacional_Negativos.csv
-      md5: 7136cb808b281a469fb78d813990d772
-      size: 100153
+      md5: c84c70d51d868ded280b2d48a9ff580e
+      size: 102173
     - path: scripts/01_extract.py
       md5: d6b438d72dff011a32700da27cac8895
       size: 2694
     outs:
     - path: data/processed/casos_covid.csv
-      md5: ce326d54f2ae6dba9a5f6e001eb59815
-      size: 1283383
+      md5: 592b05f2f261ad5b8cd403ff66bcc03f
+      size: 1309433
       isexec: true
   prepare:
     cmd: python scripts/02_prepare.py
     deps:
     - path: data/processed/casos_covid.csv
-      md5: ce326d54f2ae6dba9a5f6e001eb59815
-      size: 1283383
+      md5: 592b05f2f261ad5b8cd403ff66bcc03f
+      size: 1309433
     - path: scripts/02_prepare.py
       md5: 522c05d7d697a03ab9d80a54defb5868
       size: 1055
     outs:
     - path: data/processed/covid_prepared.csv
-      md5: b9f706800dceab62f0ccbf12955fa41a
-      size: 125548
+      md5: 69d6589f8feed8f01cb7b1616ee84ccc
+      size: 127887
       isexec: true
   model:
     cmd: python scripts/03_model.py
     deps:
     - path: data/processed/covid_prepared.csv
-      md5: b9f706800dceab62f0ccbf12955fa41a
-      size: 125548
+      md5: 69d6589f8feed8f01cb7b1616ee84ccc
+      size: 127887
     - path: scripts/03_model.py
       md5: c2546a614acb8cbe414ebeb5cea9b118
       size: 980
     outs:
     - path: data/processed/covid_trend.csv
-      md5: 184a528706e879c97fec70979ff5a7f2
-      size: 894
+      md5: 4a7b97debfe62cd2767639fab2279dc8
+      size: 873
       isexec: true
   results:
     cmd: python scripts/04_results.py
     deps:
     - path: data/processed/covid_trend.csv
-      md5: 184a528706e879c97fec70979ff5a7f2
-      size: 894
+      md5: 4a7b97debfe62cd2767639fab2279dc8
+      size: 873
     - path: scripts/04_results.py
       md5: 9981373b347b2db5e4c8b1ffee1205db
       size: 707
     outs:
     - path: data/processed/metrics/results.json
-      md5: 78cd95f72311db636a7e5264871d84be
+      md5: dfb11396f89fd4b7d96063443f296478
       size: 23
       isexec: true

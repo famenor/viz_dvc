@@ -1,5 +1,5 @@
 outs:
-- md5: dd8474554edaf4f40df73d9b8b31da02
-  size: 89497
+- md5: 5fb949590a739a1d78f3db26ee769b3d
+  size: 91574
   path: Casos_Diarios_Estado_Nacional_Confirmados.csv
   isexec: true

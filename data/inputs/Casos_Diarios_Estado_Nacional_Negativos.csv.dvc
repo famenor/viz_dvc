@@ -1,5 +1,5 @@
 outs:
-- md5: 7136cb808b281a469fb78d813990d772
-  size: 100153
+- md5: c84c70d51d868ded280b2d48a9ff580e
+  size: 102173
   path: Casos_Diarios_Estado_Nacional_Negativos.csv
   isexec: true
