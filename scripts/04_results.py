@@ -26,7 +26,7 @@ print('\n')
 print(results)
 
 
-with open('data/processed/metrics/results.json', 'w') as outfile:
+with open('data/processed/results/trend_results.json', 'w') as outfile:
     json.dump(results, outfile)
 
 print('\n')

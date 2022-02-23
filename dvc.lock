@@ -55,10 +55,10 @@ stages:
       md5: fe5d3856bfd64d1a1370883a5ae811a0
       size: 861
     - path: scripts/04_results.py
-      md5: 9981373b347b2db5e4c8b1ffee1205db
-      size: 707
+      md5: 677fa315f65313092b69a91eee91f58d
+      size: 713
     outs:
-    - path: data/processed/metrics/results.json
+    - path: data/processed/results/trend_results.json
       md5: 79c37f2ba106da58f717ac82a6220f7b
       size: 23
       isexec: true

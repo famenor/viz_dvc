@@ -28,4 +28,4 @@ stages:
     - data/processed/covid_trend.csv
     - scripts/04_results.py
     outs:
-    - data/processed/metrics/results.json
+    - data/processed/results/trend_results.json
